@@ -1,5 +1,5 @@
 <h1> {{ .Header }}</h1>
-<h4> {{ .News }}</h4>
+<h3> {{ .News }}</h3>
 <br>
 <br>
 <table style="width:100%">
@@ -18,3 +18,17 @@
   </tr>
 {{end}}
 </table>
+
+<br>
+<br>
+<br>
+<label>If you would like to use a more real-time feed, you can get a key from https://newsapi.org/
+  then enter it below </label>
+<label>Enter your API Key</label>
+<form>
+  Key in API Key:<br>
+  <input type="text" name="apikey">
+  <br>
+  <input type="submit">
+
+</form>

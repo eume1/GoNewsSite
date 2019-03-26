@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -36,7 +35,6 @@ type articles struct {
 
 //NewsListCall blah blah
 type NewsListCall struct {
-	//yolo
 	Status       string     `json:"status"`
 	TotalResults int        `json:"totalResults"`
 	Articles     []articles `json:"articles"`
@@ -83,8 +81,8 @@ var Arts []Article
 
 func newsDisplayHandler(w http.ResponseWriter, r *http.Request) {
 	newsPage := NewsPage{
-		Header:   "This is your Mostly Fake news update for " + time.Now().Format("Mon 2006-01-2"),
-		News:     "Here's your daily dose of mostly Fake News",
+		Header:   "Here's your daily dose of mostly Fake News for " + time.Now().Format("Monday 2006-01-2"),
+		News:     "Newslist refreshes every 15 minutes",
 		Articles: Arts}
 	parse, _ := template.ParseFiles("template/newsPage.html")
 	parse.Execute(w, newsPage)
@@ -106,7 +104,7 @@ func main() {
 	}
 
 	//	fmt.Println(news.TotalResults)
-	fmt.Println(len(Arts))
+	//  fmt.Println(len(Arts))
 	http.HandleFunc("/news/", newsDisplayHandler)
 	http.ListenAndServe(":9003", nil)
 
