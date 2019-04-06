@@ -3,7 +3,7 @@ News App written in Golang
 
 News list is courtsey of https://newsapi.org
 
-After installin Go, run: 
+After installing Go, run: 
 
 - go build webapp.go
 
